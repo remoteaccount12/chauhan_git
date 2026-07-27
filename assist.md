@@ -1,6 +1,6 @@
 skills - .md file, python sc, memory access, tool access 
 
 
-Habbit tracking - no cigs 
+Habit tracking - no cigs 
 finance shit 
 
