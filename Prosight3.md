@@ -24,3 +24,22 @@ I've said "testable" a lot and that undersells it. The real property is:
 ▎ Code you can run in isolation is code you can understand in isolation.
 If you can't call a function without a GPU and a warehouse, you also can't reason about it without holding a GPU and a warehouse in your head. Prosight2 is 28.7% testable — which is another way of saying 71% of it can only be understood by running the whole system. Tests are just the measurable proxy for "can a human hold this in their head."
 
+
+
+domain - 
+adapters - 
+application - 
+config - 
+cli - 
+
+    Folder    │ The question it answers │              Real example               │
+├──────────────┼─────────────────────────┼─────────────────────────────────────────┤
+│ domain/      │ What's the rule?        │ "outside the range → anomaly"           │
+├──────────────┼─────────────────────────┼─────────────────────────────────────────┤
+│ adapters/    │ How do I talk to X?     │ connecting to Databricks                │
+├──────────────┼─────────────────────────┼─────────────────────────────────────────┤
+│ application/ │ What order?             │ read → forecast → flag → explain → send │
+├──────────────┼─────────────────────────┼─────────────────────────────────────────┤
+│ config/      │ What value?             │ 0.75                                    │
+├──────────────┼─────────────────────────┼─────────────────────────────────────────┤
+│ cli/         │ Which pieces today?     │ real reader, or fake one
