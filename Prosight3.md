@@ -26,20 +26,9 @@ If you can't call a function without a GPU and a warehouse, you also can't reaso
 
 
 
-domain - 
-adapters - 
-application - 
-config - 
-cli - 
+domain - What's the rule?  
+adapters - How do I talk to X? 
+application - What order? , Actual pipeline
+config - What value?     
+cli - Which pieces today?
 
-    Folder    │ The question it answers │              Real example               │
-├──────────────┼─────────────────────────┼─────────────────────────────────────────┤
-│ domain/      │ What's the rule?        │ "outside the range → anomaly"           │
-├──────────────┼─────────────────────────┼─────────────────────────────────────────┤
-│ adapters/    │ How do I talk to X?     │ connecting to Databricks                │
-├──────────────┼─────────────────────────┼─────────────────────────────────────────┤
-│ application/ │ What order?             │ read → forecast → flag → explain → send │
-├──────────────┼─────────────────────────┼─────────────────────────────────────────┤
-│ config/      │ What value?             │ 0.75                                    │
-├──────────────┼─────────────────────────┼─────────────────────────────────────────┤
-│ cli/         │ Which pieces today?     │ real reader, or fake one
