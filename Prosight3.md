@@ -16,13 +16,11 @@ Ask which of these is more likely to change in the next two years:
 - the Databricks SQL connector
 
 The business rule is far more stable. So the business rule must not depend on the connector. In Prosight2 it does — anomaly_detector.py transitively reaches Databricks, OpenAI, and torch. The most stable idea in the product is chained to the three most volatile things in it.
-
 Inverting that is what the ports do. The rule depends on nothing; the connector conforms to what the rule needs.
 
 3 · Testability is a symptom, not the goal.
 
 I've said "testable" a lot and that undersells it. The real property is:
-
 ▎ Code you can run in isolation is code you can understand in isolation.
-
 If you can't call a function without a GPU and a warehouse, you also can't reason about it without holding a GPU and a warehouse in your head. Prosight2 is 28.7% testable — which is another way of saying 71% of it can only be understood by running the whole system. Tests are just the measurable proxy for "can a human hold this in their head."
+
