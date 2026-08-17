@@ -34,3 +34,5 @@ cli - Which pieces today?
 
 __init__.py marks a directory as a Python package so it can be imported with dotted names (import myproj.utils)
 
+
+Calender fills understanding req
