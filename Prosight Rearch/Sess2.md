@@ -1,6 +1,4 @@
 ### Ports and protocol
-****
-
 Ports - That place — where two genuinely different implementations can be swapped without the caller noticing — is a **port**, or a **seam**. 
 "the five walls where external stuff plugs in"
 A port is one of these five seams where the world touches your code. (define better)
@@ -23,7 +21,32 @@ TLDR
 - Port = a seam where adapters plug in (the five places external stuff touches the pipeline)
 - Protocol = how you declare the shape of that seam, without forcing adapters to know about the application layer
 - Wall socket = the metaphor: the pipeline plugs into it without knowing what's on the other side
+****
+
+
 
 ### The dependency DAG
+                            cli.py
+                    the composition root — the ONLY
+                   module that imports both sides, and
+                    the only one that knows fakes exist
+                         ╱                    ╲
+                        ╱                      ╲
+                       ▼                        ▼
+              adapters/                      application/
+          fakes/reader.py                  ports.py     (the Protocols)
+          fakes/forecaster.py              pipeline.py  (the order of steps)
+          fakes/sender.py                  render.py    (report -> text)
+                       │                        │
+                       │                        ▼
+                       │                     domain/
+                       │                   types.py     (the nouns)
+                       └──────────────────► anomaly.py  (the rules)
+                            imports domain TYPES only,
+                            never the application layer
 
-frf
+              ┌──────────────────────────────────────────────┐
+              │  An arrow may point INWARD, toward domain.   │
+              │  No arrow ever points outward.               │
+              └──────────────────────────────────────────────┘
+
