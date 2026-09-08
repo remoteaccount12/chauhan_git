@@ -56,3 +56,9 @@ Read as four rules:
 - **`application/`** imports `domain` (it needs the nouns and `judge_all`) and its own `ports` (it needs the shapes). It does **not** import `adapters/`. `pipeline.py` has never heard of `FakeReader`.
 - **`adapters/`** imports `domain` types, because a reader has to return `DailyPoint` objects. It does **not** import `application/` — not even to say "I am a `DailyReader`", because `Protocol` makes that claim unnecessary.
 - **`cli.py`** imports both and does nothing else of substance. It picks implementations and hands them to `run_daily`.
+
+| Layer          | Changes when                                      | How often |
+| -------------- | ------------------------------------------------- | --------- |
+| `adapters/`    | Databricks becomes Snowflake; Flock becomes Slack | Often     |
+| `application/` | the order of the steps changes                    | Sometimes |
+| `domain/`      | the business definition of an anomaly changes     | Rarely    |
