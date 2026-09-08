@@ -50,3 +50,12 @@ TLDR
               │  No arrow ever points outward.               │
               └──────────────────────────────────────────────┘
 
+Read as four rules:
+
+- **`domain/`** imports `dataclasses` and `datetime`. That is the entire list — nothing from this project, nothing from PyPI. Session 1's third test is what keeps it that way.
+
+- **`application/`** imports `domain` (it needs the nouns and `judge_all`) and its own `ports` (it needs the shapes). It does **not** import `adapters/`. `pipeline.py` has never heard of `FakeReader`.
+
+- **`adapters/`** imports `domain` types, because a reader has to return `DailyPoint` objects. It does **not** import `application/` — not even to say "I am a `DailyReader`", because `Protocol` makes that claim unnecessary.
+
+- **`cli.py`** imports both and does nothing else of substance. It picks implementations and hands them to `run_daily`.
