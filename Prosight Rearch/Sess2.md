@@ -1,3 +1,4 @@
+Ports and protocol
 Ports - That place — where two genuinely different implementations can be swapped without the caller noticing — is a **port**, or a **seam**. 
 "the five walls where external stuff plugs in"
 A port is one of these five seams where the world touches your code. (define better)
@@ -15,4 +16,8 @@ With Protocol (Prosight4's way):
 class DatabricksReader:  # ← no mention of DailyReader
     def read(self, on):
         ...
-DatabricksReader doesn't import anything from application/. The only place that knows about both is cli.py, the composition root. Swap for Snowflake and only cli.py changes.
+
+TLDR
+- Port = a seam where adapters plug in (the five places external stuff touches the pipeline)
+- Protocol = how you declare the shape of that seam, without forcing adapters to know about the application layer
+- Wall socket = the metaphor: the pipeline plugs into it without knowing what's on the other side
