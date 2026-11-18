@@ -1,0 +1,14 @@
+2026-11-18.md
+  h_0aeb30c81cc925 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "772ba8fac057ba2c600d402503ff8c8e71413795",
+  "prompts": {},
+  "humans": {
+    "h_0aeb30c81cc925": {
+      "author": "test <test@local>"
+    }
+  }
+}
